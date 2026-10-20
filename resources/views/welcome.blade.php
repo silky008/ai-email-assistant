@@ -137,6 +137,24 @@ button.button {
     color: #6b7280;
     font-size: 14px;
 }
+.error-message {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    color: #b91c1c;
+    text-align: left;
+}
+
+.error-message p {
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.error-message ul {
+    margin-bottom: 0;
+}
 
     </style>
 </head>
@@ -160,7 +178,19 @@ button.button {
     <h3>Draft your email</h3>
     <p>Tell us what you want to communicate.</p>
 
-    <form action="#" method="POST">
+    <form action="{{ route('email.generate') }}" method="POST">
+        @csrf
+        @if ($errors->any())
+    <div class="error-message">
+        <p>Please correct the following errors:</p>
+
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
         <div class="form-group">
             <label for="recipient">Recipient context</label>
             <input
