@@ -16,6 +16,10 @@ class EmailController extends Controller
                 'in:professional,friendly,formal,persuasive',
             ],
         ]);
-        return 'Email form submitted successfully!';
+        return view('email-result', [
+            'recipient' => $validated['recipient'] ?? '',
+            'tone'      => $validated['tone'],
+            'notes'     => $validated['notes'],
+        ]);
     }
 }
