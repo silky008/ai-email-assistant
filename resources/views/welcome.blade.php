@@ -92,6 +92,52 @@
                 font-size: 32px;
             }
         }
+
+.form-group {
+    margin-top: 22px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font: inherit;
+    background: #ffffff;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: 2px solid #93c5fd;
+    border-color: #2563eb;
+}
+
+button.button {
+    border: none;
+    cursor: pointer;
+    font: inherit;
+}
+
+.form-note {
+    margin-top: 18px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
     </style>
 </head>
 <body>
@@ -109,14 +155,53 @@
             Choose your preferred tone and let AI help you find the right words.
         </p>
 
-        <section class="feature">
-            <h3>Ready to write your next email?</h3>
-            <p>
-                Soon, you will be able to generate professional emails
-                using a locally running AI model.
-            </p>
-            <a href="#email-form" class="button">Get Started</a>
-        </section>
+
+<section class="feature" id="email-form">
+    <h3>Draft your email</h3>
+    <p>Tell us what you want to communicate.</p>
+
+    <form action="#" method="POST">
+        <div class="form-group">
+            <label for="recipient">Recipient context</label>
+            <input
+                type="text"
+                id="recipient"
+                name="recipient"
+                placeholder="e.g. Hiring manager, colleague, or client"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="notes">What should the email say?</label>
+            <textarea
+                id="notes"
+                name="notes"
+                rows="6"
+                placeholder="Write your rough notes here..."
+                required
+            ></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="tone">Email tone</label>
+            <select id="tone" name="tone">
+                <option value="professional">Professional</option>
+                <option value="friendly">Friendly</option>
+                <option value="formal">Formal</option>
+                <option value="persuasive">Persuasive</option>
+            </select>
+        </div>
+
+        <button type="submit" class="button">
+            Generate Email
+        </button>
+
+        <p class="form-note">
+            AI-powered email generation will be connected in a later step.
+        </p>
+    </form>
+</section>
+
     </main>
 
     <footer>
